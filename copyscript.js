@@ -137,7 +137,7 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
     }
 
     function captureImageFromTabs(ourTabs){
-
+        //Lets look into this https://developer.chrome.com/extensions/tabCapture
     }
 
 });
