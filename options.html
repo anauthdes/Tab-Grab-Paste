@@ -3,25 +3,29 @@
 
 <head>
     <title>Extension Options</title>
+    <link rel="stylesheet" type="text/css" href="options.css">
 </head>
 
 <body>
-     <label>
-        <input type="checkbox" id="snapshot">
-        Take Snapshot of screen
-    </label>
-    <label id="title-section">
-        -Select title from:
+    <div>
+     <label>Toggle Screenshot</label>
+     <input type="checkbox" id="snapshot">
+    </div>
+    <div>
+    <label id="title-section">Select title starting from:</label>
+    </div>
+    <div class="TitleSelectDropDownMenu">
         <select id="section">
-            <option value="All">Whole Title(All)</option>
-            <option value="Begin">Beginning</option>
-            <option value="End">End</option>
+            <option value="All">Whole Title + Link</option>
+            <option value="Begin">First Word + Link</option>
+            <option value="End">Last Word + Link</option>
             <option value="NoBegin">No Beginning(Eg: No Company Name)</option>
-            <option value="none">None(No Title)</option>
+            <option value="none">Only Link</option>
         </select>
-    </label>
-    <div id="status"></div>
-    <button id="save">Save</button>
+    </div>
+    <button id="save" class="SaveButton">Save</button>
+    <a href="http://scaledcapstudio.ca/" target="_blank"><img class="logo" src="ScaledCap-Logo.svg" alt="ScaledCap Studio Logo"/></a>
+    <div id="status" class="StatusDiv"></div>
     <script src="options.js"></script>
 </body>
 
