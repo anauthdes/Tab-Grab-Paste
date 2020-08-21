@@ -1,34 +1,76 @@
 /*options.css*/
         body{
             font-family: "Lucida Console";
-            font-size: 20px;
+            font-size: 25px;
+            width: 450px;
             }
         div{
             margin: 10px 10px 10px 10px;
 
         }
-        .TitleSelectDropDownMenu{
+        .TitleSelectDiv{
             margin: 10px 10px 10px 10px;
-            float: left;
+            font-family: "Lucida Console";
+            font-size: 25px;;
+            
+        }
+        .CheckBox{
+            width: 18px; 
+            height: 18px; 
+        }
+        .DropDownMenu{
             font-family: "Lucida Console";
             font-size: 20px;
-            
         }
         .SaveButton{
-            margin: 10px 10px 10px 10px;
             font-family: "Lucida Console";
             font-size: 20px;
             
         }
-        .logo{
+        .LogoImage{
             margin: 10px 10px 10px 10px;
-            float: left;
             width: 50px;
             height: 50px;
             vertical-align: middle;
+            float: left;
+
+        }
+
+        .spin-animtation{
+            animation-name: spin;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+     
+        @keyframes spin {
+            to {
+                transform:rotate(360deg);
             }
+        }
+          
+        .StatusDiv{
+            margin: 25px 10px 10px 10px;
+        }
+
+        .text-focus-in {
+            animation: text-focus-in 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        }
+
+        @keyframes text-focus-in {
+            0% {
+              filter: blur(12px);
+              opacity: 0;
+            }
+            100% {
+              filter: blur(0px);
+              opacity: 1;
+            }
+          }
+
+  
+  
 
         
-        .StatusDiv{
-            margin: 25px 10px 10px 10px
-        }
+
+    
