@@ -38,7 +38,7 @@
 
         .spin-animtation{
             animation-name: spin;
-            animation-duration: 0.5s;
+            animation-duration: 1s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
         }
