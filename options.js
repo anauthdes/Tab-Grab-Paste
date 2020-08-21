@@ -6,12 +6,21 @@ function save_options() {
     takeSnapshot: snapshot,
     useTitle: title
   }, function() {
-    // Update status to let user know options were saved.
+    //Update status to let user know options were saved
+    //With added text animation and logo spin for flair
     var status = document.getElementById('status');
+    status.classList.add('text-focus-in');
     status.textContent = 'Options saved.';
     setTimeout(function() {
       status.textContent = '';
-    }, 1000);
+      status.classList.remove('text-focus-in');
+ }, 1000);
+  var logo = document.getElementById('logo');
+  logo.classList.add("spin-animtation");
+  setTimeout(function(){
+    logo.classList.remove("spin-animtation");
+    }, 500);
+
   });
 }
 
@@ -28,5 +37,4 @@ function restore_options() {
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+document.getElementById('save').addEventListener('click', save_options);
