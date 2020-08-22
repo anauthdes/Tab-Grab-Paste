@@ -19,7 +19,7 @@ function save_options() {
   logo.classList.add("spin-animtation");
   setTimeout(function(){
     logo.classList.remove("spin-animtation");
-    }, 500);
+    }, 1000);
 
   });
 }
