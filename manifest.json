@@ -11,8 +11,14 @@
   },
 
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon":{
+      "128":"128.png",
+      "48": "48.png",
+      "16": "16.png"
+
+    }
   },
+  
   "permissions": [
     "tabs",
     "activeTab",
@@ -20,7 +26,7 @@
     "notifications"
   ],
   "web_accessible_resources": [
-    "icon.png"
+    "128.png"
   ],
   "background":{
     "scripts": ["copyscript.js"]

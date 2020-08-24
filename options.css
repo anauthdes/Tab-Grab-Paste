@@ -1,9 +1,11 @@
 /*options.css*/
         body{
+           /* background-color: #1C6EA4; */
             font-family: "Lucida Console";
             font-size: 25px;
             width: 450px;
             }
+
         div{
             margin: 10px 10px 10px 10px;
 
