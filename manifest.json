@@ -11,14 +11,12 @@
   },
 
   "browser_action": {
-    "default_icon":{
-      "128":"128.png",
-      "48": "48.png",
-      "16": "16.png"
-
-    }
+    "default_icon":"128.png"
+      
   },
-  
+  "icons": { "16": "16.png",
+           "48": "48.png",
+          "128": "128.png" },
   "permissions": [
     "tabs",
     "activeTab",
