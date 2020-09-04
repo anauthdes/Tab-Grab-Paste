@@ -24,7 +24,8 @@
     "notifications"
   ],
   "web_accessible_resources": [
-    "128.png"
+    "128.png",
+    "render.html"
   ],
   "background":{
     "scripts": ["copyscript.js"]
