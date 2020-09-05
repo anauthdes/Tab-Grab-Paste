@@ -25,11 +25,11 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         tabQueryInfo.windowId = curwindow.id;
 
         chrome.tabs.query(tabQueryInfo, function(items) {
-            
+
             if (snapshot) {
                 captureImageFromTabs(items);
-            }else{
-                copyStringToClipboard(getFormattedLinks(items),"");
+            } else {
+                copyStringToClipboard(getFormattedLinks(items), "");
             }
 
         });
@@ -79,18 +79,18 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         return formatLinks;
     }
 
-    function copyStringToClipboard(str,imgStr) {
+    function copyStringToClipboard(str, imgStr) {
 
         // Create new element
         var el = document.createElement('p');
         // Set value (string to be copied)
-        el.innerHTML = (str + "<br>" +  imgStr);
+        el.innerHTML = (str + "<br>" + imgStr);
         // Set non-editable to avoid focus and move outside of view
         el.setAttribute('readonly', '');
         el.style = { position: 'absolute', left: '-9999px' };
         document.body.appendChild(el);
-        copyHtmlToClipboard(el, (str + "<br>" +  imgStr));
-        console.log((str + "<br>" +  imgStr));
+        copyHtmlToClipboard(el, (str + "<br>" + imgStr));
+        console.log((str + "<br>" + imgStr));
         // Remove temporary element
         document.body.removeChild(el);
     }
@@ -157,23 +157,20 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
     }
 
     function captureImageFromTabs(ourTabs) {
-        //Lets look into this https://developer.chrome.com/extensions/tabCapture
+
         var originalTab = 0;
-        // var captureOpt = { audio: false, video: true };
-        // var receiver = null;
-        var curTabIndex = 0;
 
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) { originalTab = tabs[0]; });
         chrome.tabs.query({ highlighted: true, currentWindow: true }, function(tabs) {
             console.log("capture image info: ", tabs, " original: ", originalTab, ourTabs);
-            getImgFromTab(tabs, 0, tabs.length, [], originalTab,ourTabs);
+            getImgFromTab(tabs, 0, tabs.length, [], originalTab, ourTabs);
 
         });
 
     }
 
     function getImgFromTab(tabs, curIdx, maxIdx, currentValue, oriTab, ourTabs) {
-        // debugger;
+
         var tempVal = currentValue;
         if (curIdx >= maxIdx) {
             copyStringToClipboard(getFormattedLinks(ourTabs), getFormattedImages(currentValue));
@@ -187,7 +184,7 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
                         console.log({ imgSrc: dataUrl });
                         tempVal.push(dataUrl);
                         console.log(tempVal);
-                        return getImgFromTab(tabs, curIdx + 1, maxIdx, tempVal,oriTab,ourTabs);
+                        return getImgFromTab(tabs, curIdx + 1, maxIdx, tempVal, oriTab, ourTabs);
 
                     }
                 );

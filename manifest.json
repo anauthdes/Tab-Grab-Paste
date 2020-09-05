@@ -23,16 +23,12 @@
         "128": "128.png"
     },
     "permissions": [
-        "tabs",
-        "activeTab",
+       
         "storage",
-        "notifications",
         "<all_urls>"
-
     ],
     "web_accessible_resources": [
-        "128.png",
-        "render.html"
+        "128.png"
     ],
     "background":
     {
