@@ -1,78 +1,78 @@
 /*options.css*/
-        body{
-           /* background-color: #1C6EA4; */
-            font-family: "Lucida Console";
-            font-size: 25px;
-            width: 450px;
-            }
+body {
+    /* background-color: #1C6EA4; */
+    font-family: "Lucida Console";
+    font-size: 25px;
+    width: 450px;
+}
 
-        div{
-            margin: 10px 10px 10px 10px;
+div {
+    margin: 10px 10px 10px 10px;
 
-        }
-        .TitleSelectDiv{
-            margin: 10px 10px 10px 10px;
-            font-family: "Lucida Console";
-            font-size: 25px;;
-            
-        }
-        .CheckBox{
-            width: 18px; 
-            height: 18px; 
-        }
-        .DropDownMenu{
-            font-family: "Lucida Console";
-            font-size: 20px;
-        }
-        .SaveButton{
-            font-family: "Lucida Console";
-            font-size: 20px;
-            
-        }
-        .LogoImage{
-            margin: 10px 10px 10px 10px;
-            width: 50px;
-            height: 50px;
-            vertical-align: middle;
-            float: left;
+}
 
-        }
+.TitleSelectDiv {
+    margin: 10px 10px 10px 10px;
+    font-family: "Lucida Console";
+    font-size: 25px;
+    ;
 
-        .spin-animtation{
-            animation-name: spin;
-            animation-duration: 1s;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
-     
-        @keyframes spin {
-            to {
-                transform:rotate(360deg);
-            }
-        }
-          
-        .StatusDiv{
-            margin: 25px 10px 10px 10px;
-        }
+}
 
-        .text-focus-in {
-            animation: text-focus-in 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-        }
+.CheckBox {
+    width: 18px;
+    height: 18px;
+}
 
-        @keyframes text-focus-in {
-            0% {
-              filter: blur(12px);
-              opacity: 0;
-            }
-            100% {
-              filter: blur(0px);
-              opacity: 1;
-            }
-          }
+.DropDownMenu {
+    font-family: "Lucida Console";
+    font-size: 20px;
+}
 
-  
-  
+.SaveButton {
+    font-family: "Lucida Console";
+    font-size: 20px;
 
-        
+}
 
-    
+.LogoImage {
+    margin: 10px 10px 10px 10px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    float: left;
+
+}
+
+.spin-animtation {
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.StatusDiv {
+    margin: 25px 10px 10px 10px;
+}
+
+.text-focus-in {
+    animation: text-focus-in 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}

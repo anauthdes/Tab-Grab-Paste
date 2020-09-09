@@ -19,23 +19,20 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         title = items.useTitle;
     });
 
-
+    //gets the current tabs and runs the apropriate function based on options
     chrome.windows.getCurrent(windowQueryInfo, function(curwindow) {
-        console.log(curwindow);
         tabQueryInfo.windowId = curwindow.id;
-
         chrome.tabs.query(tabQueryInfo, function(items) {
-
+            //if screenshots are required run the appropriate function. 
             if (snapshot) {
                 captureImageFromTabs(items);
             } else {
                 copyStringToClipboard(getFormattedLinks(items), "");
             }
-
         });
     });
 
-
+    //Creates a string version of the link elements needed to be placed into the clipboard
     function getFormattedLinks(ourTabs) {
         console.log(ourTabs);
         var formatLinks = "";
@@ -66,6 +63,7 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         return formatLinks;
     }
 
+    //gets the string version of the image elemnets to be placed in the clipboard
     function getFormattedImages(imgData) {
 
         var formatLinks = "";
@@ -79,8 +77,8 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         return formatLinks;
     }
 
+    //puts the string formats together and calls the functionality to place into clipboard
     function copyStringToClipboard(str, imgStr) {
-
         // Create new element
         var el = document.createElement('p');
         // Set value (string to be copied)
@@ -95,6 +93,7 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         document.body.removeChild(el);
     }
 
+    //sets HTML into the clipboard 
     function copyHtmlToClipboard(clipboardDiv, html) {
         clipboardDiv.innerHTML = html;
 
@@ -117,6 +116,7 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
 
         focused.focus();
     }
+
     //used for getting the first point or last point of the title
     function getFixedTitle(oriTitle, section) {
         console.log(section);
@@ -156,19 +156,17 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
         return newTitle;
     }
 
+    //runs the reccursion function to pull the screenshots into string elements
     function captureImageFromTabs(ourTabs) {
-
         var originalTab = 0;
-
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) { originalTab = tabs[0]; });
         chrome.tabs.query({ highlighted: true, currentWindow: true }, function(tabs) {
             console.log("capture image info: ", tabs, " original: ", originalTab, ourTabs);
             getImgFromTab(tabs, 0, tabs.length, [], originalTab, ourTabs);
-
         });
-
     }
 
+    //recurring function to grab the image of the screenshots and then call the clipboard function
     function getImgFromTab(tabs, curIdx, maxIdx, currentValue, oriTab, ourTabs) {
 
         var tempVal = currentValue;
@@ -190,8 +188,6 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
                 );
             });
         }
-
-
     }
 
 });
