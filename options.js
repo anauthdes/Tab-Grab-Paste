@@ -1,9 +1,13 @@
 // Saves options to chrome.storage
 function save_options() {
   var snapshot = document.getElementById('snapshot').checked;
+  var embedTitle = document.getElementById('embedtitle').checked;
   var title = document.getElementById('section').value;
+
+
   chrome.storage.sync.set({
     takeSnapshot: snapshot,
+    embedTitle: embedTitle,
     useTitle: title
   }, function() {
     //Update status to let user know options were saved
@@ -29,9 +33,11 @@ function save_options() {
 function restore_options() {
   chrome.storage.sync.get({
     takeSnapshot: true,
+    embedTitle: false,
     useTitle: 'All'
   }, function(items) {
     document.getElementById('snapshot').checked = items.takeSnapshot;
+    document.getElementById('embedtitle').checked = items.embedTitle;
     document.getElementById('section').value = items.useTitle;
   });
 }

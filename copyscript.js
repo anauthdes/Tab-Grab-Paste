@@ -9,13 +9,16 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
 
     //setting default options
     var snapshot = true;
+    var embedTitle = false;
     var title = 'All';
     //pulling the saved options for the user browser
     chrome.storage.sync.get({
         takeSnapshot: true,
+        embedTitle: false,
         useTitle: 'All'
     }, function(items) {
         snapshot = items.takeSnapshot;
+        embedTitle = items.embedTitle;
         title = items.useTitle;
     });
 
@@ -49,14 +52,18 @@ chrome.browserAction.onClicked.addListener(function(tabs) {
                 case 'End':
                 case "NoBegin":
                     //use the beginning or end of title
-                    formatLinks += (getFixedTitle(ourTabs[tab].title, title) + "<br/>");
+                    console.log(embedTitle);
+                    if (embedTitle) {
+                        formatLinks += ("<a href=\"" + ourTabs[tab].url + "\" target=\"_blank\">" + getFixedTitle(ourTabs[tab].title, title) + "</a>" + "<br/>");
+                    } else {
+                        formatLinks += (getFixedTitle(ourTabs[tab].title, title) + "<br/>");
+                        formatLinks += defaultURL;
+                    }
                     break;
                 default:
-                    //do nothing if no title option is selected
+                    formatLinks += defaultURL;
                     break;
             }
-            //default
-            formatLinks += defaultURL;
 
         }
         console.log(formatLinks);
